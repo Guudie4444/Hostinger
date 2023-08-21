@@ -1,38 +1,23 @@
-var slideIndex = 1;
-showSlides(slideIndex);
+const container = document.querySelector('.h-carousel-track__cards-container');
+const cards = container.querySelectorAll('.h-carousel-card');
+let currentIndex = 0;
 
-// Next/previous controls
-function plusSlides(n) {
-showSlides(slideIndex += n);
+function slideToIndex(index) {
+    const cardWidth = cards[0].offsetWidth + 10; // Width + margin
+    container.style.transform = `translateX(-${index * cardWidth}px)`;
+    currentIndex = index;
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-showSlides(slideIndex = n);
+// Example: Slide to the next card
+function nextSlide() {
+    if (currentIndex < cards.length - 1) {
+        slideToIndex(currentIndex + 1);
+    }
 }
 
-function showSlides(n) {
-var i;
-var slides = document.getElementsByClassName("mySlides");
-var dots = document.getElementsByClassName("dot");
-if (n > slides.length) {slideIndex = 1}
-if (n < 1) {slideIndex = slides.length}
-for (i = 0; i < slides.length; i++) {
-  slides[i].style.display = "none";
+// Example: Slide to the previous card
+function prevSlide() {
+    if (currentIndex > 0) {
+        slideToIndex(currentIndex - 1);
+    }
 }
-for (i = 0; i < dots.length; i++) {
-dots[i].className = dots[i].className.replace(" active", "");
-}
-slides[slideIndex-1].style.display = "block";
-dots[slideIndex-1].className += " active";
-}
-
-
-
-
-
-
-document.querySelector("#h-pricing-table-carousel > div > div > div.h-carousel-track__container > div")
-
-
-document.querySelector("#h-pricing-table-carousel > div > div > div.h-carousel-track__container")

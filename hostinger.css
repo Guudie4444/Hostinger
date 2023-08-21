@@ -16,9 +16,10 @@ html{
 }
 body{
     box-sizing:border-box;
-    font-size:100%;
-    margin:0;
+    /* font-size:100%; */
     overflow-x:hidden;
+    padding: 0%;
+    margin: 0%;
 }
 @media(min-width:1025px){
     body ::-webkit-scrollbar{
@@ -3670,7 +3671,7 @@ body.rtl ol li{
         width:360px
     }
     .h-pricing-card--narrow[data-v-361e5f6b] .h-product-badge{
-        padding:8px 68px
+        padding:8px 98px
     }
     .h-pricing-card--narrow .h-pricing-card__title[data-v-361e5f6b]{
         height:auto
@@ -3684,10 +3685,7 @@ body.rtl ol li{
     display:flex;
     flex-direction:column;
     max-width:360px;
-    padding:31px 23px
-
-    
-    
+    padding:31px 23px;
 }
 @media(min-width:1025px){
     .h-pricing-card__container[data-v-361e5f6b]{
@@ -5435,34 +5433,35 @@ a[data-v-1d2b3211]{
 }
 
 
-@media(max-width: 500px) {
-       .h-carousel-track__cards-container {
-        width: 400px;
-        overflow-x:scroll;
-        float: right;
-        position: relative;
-        scroll-snap-type: mandatory;
-        scroll-snap-align: center;
-        scroll-behavior: smooth;
+/* Media query for smaller screens (e.g., mobile devices) */
+@media (max-width: 768px) {
+    /* Base styles for the carousel container */
+.h-carousel-track__cards-container {
+    width: 500px; /* Adjust width as needed */
+    overflow-x: auto; /* Hide overflow, so only one card is visible at a time */
+    /* Make sure cards stay in a single line */
+    display: flex; /* Use flexbox to arrange cards horizontally */
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center; /* Align cards to the start of the viewport */
+    -webkit-overflow-scrolling: touch; /* Improve scroll performance on iOS */
+    transition: transform 0.5s; /* Smooth transition for sliding effect */
+    gap: 10%;
 }
 
-    .h-carousel-card-wrapper {
-        width: 350px;
-    }
+.h-carousel-track__cards-container > * {
+    width: 300px;
+    flex: 0% 0% 0%; /* Each card occupies the full width of the container */
+    margin-right: 10px; /* Adjust spacing between cards */
+    scroll-snap-align: center; /* Align cards to center of the viewport */
+}
+    
+}
 
-    .h-carousel-track__cards-container::-webkit-scrollbar{
-        display: none !important;
-      }
 
-      .right-left {
-        padding: 0px 50px 0px;
-    }
+ 
 
-    /* .mySlides {
-        display: none;
-      overflow-x: scroll;
-     }
-    */
+@media all and (max-width: 500px) {
+
         
         .stars-img1 {
             width: 110px;
@@ -5484,16 +5483,23 @@ a[data-v-1d2b3211]{
             color: #000;
             font-weight: 600;
         }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: purple;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            }
     
 }
 
-@media(min-width: 500px) {
-    .mySlides {
-        display: flex !important;
-        visibility: visible !important;
-  
-     }
 
+@media(min-width: 500px) {
+ 
      .dot {
        display: none !important;
         }
