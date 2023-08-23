@@ -71,7 +71,8 @@ a,button{
     border-radius:0;
     cursor:pointer;
     outline:0;
-    padding:0
+    padding:0;
+    color: #fff !important;
 }
 a{
     color:inherit
