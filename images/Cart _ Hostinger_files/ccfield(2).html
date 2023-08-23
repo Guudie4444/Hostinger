@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0052)https://js.processout.com/ccfield.html?r=lmrfv#lmrfv -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Card field</title>
+
+    <style type="text/css">
+        html, body, div, span, applet, object, iframe,
+        fieldset, form, label, canvas {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+            overflow-y: hidden;
+        }
+        html, body {
+            width: 100%;
+        }
+
+        input {
+            padding: 0; margin: 0; border: 0; background: transparent;
+            width: 100%; box-shadow: none; outline: none;
+            font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var loaded = false;
+            var onload = function() {
+                if (typeof(ProcessOut) == 'undefined' || !ProcessOut || loaded) return;
+                new ProcessOut.Field(document.getElementById('processout-field'));
+                loaded = true;
+            };
+            var onerror = function() {
+                throw new Error("checkout.js could not be loaded")
+            }
+
+            var script = document.createElement('script');
+            script.setAttribute('src', 'dist/checkout.js');
+            script.onreadystatechange = onload;
+            script.onload = onload;
+            script.onabort = onerror;
+            script.onerror = onerror;
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+            onload();
+        });
+    </script>
+<script src="./checkout.js.download"></script></head>
+<body>
+    <input type="tel" id="processout-field" autocorrect="off" spellcheck="false" inputmode="numeric">
+
+</body></html>
